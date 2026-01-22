@@ -54,6 +54,11 @@ const Planets = () => {
 
   return (
   <div className='planets'>
+    {/* Title */}
+    <section className="planets__title">
+      <h1>Planet Traversal</h1>
+      <p>Distribute your ships.</p>
+    </section>
       {planets?.map(planet => {
           const planetSpacecrafts = spacecrafts?.filter(spacecraft => {
             return spacecraft.currentLocation === planet.id

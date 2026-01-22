@@ -9,8 +9,21 @@
   gap: 4rem;
 }
 
+.planets__title h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 0.2em;
+  background: linear-gradient(90deg, #22d3ee, #9f7aea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.planets__title p {
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
 /* Hero Section (optional) */
-.planets__hero {
+.planets__title {
   text-align: center;
   margin-bottom: 2rem;
 }
