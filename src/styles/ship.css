@@ -5,8 +5,7 @@
     min-width: 10%;
     max-height: 40%;
     min-height: 40%;
-}
-
+} 
 
 .ship p{
     padding-left: 3px;
@@ -20,3 +19,8 @@
     margin-bottom: 10px;
     border: 3px dotted white;
 }
+
+.ship img:hover, .selected img {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(34,211,238,0.6);
+} 

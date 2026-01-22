@@ -1,4 +1,4 @@
-import ContentBox from '../components/ContentBox'
+import { NavLink } from 'react-router-dom';
 import '../styles/Home.css'
 
 const appFunctionsWithDescriptions = [
@@ -11,16 +11,41 @@ const appFunctionsWithDescriptions = [
 
 const Home = () => {
   return (
-    <div className='home__content'>
-        {appFunctionsWithDescriptions.map((entry, idx) => {
-            return <ContentBox key={idx} title={entry.title} content={entry.content} />
-        })}
-        <span className='home__content--footer'>
-            <h3>The solar system: the new home</h3>
-            <p>🌍🚀🧑‍🚀🪐</p>
-        </span>
-    </div>
-  )
-}
+    <main className="home">
+
+      {/* Hero */}
+      <section className="home__hero">
+        <h1>SPACE TRAVEL</h1>
+        <p>
+          Command humanity's traversal. Engineer spacecraft.
+          Explore distant worlds. Shape the distribution of life.
+        </p>
+
+        <div className="home__hero-actions">
+          <NavLink to="Spacecrafts" className="btn-primary">Begin Mission</NavLink>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="home__features">
+        {appFunctionsWithDescriptions.map((entry, idx) => (
+          <div key={idx} className="feature-card">
+            <h3>{entry.title}</h3>
+            <p>{entry.content}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Call to Action */}
+      <section className="home__cta">
+        <h2>The Solar System Is the New Home</h2>
+        <p>🌍 🚀 🧑‍🚀 🪐</p>
+        <NavLink to="Spacecrafts" className="btn-primary">Launch Mission</NavLink>
+      </section>
+
+    </main>
+  );
+};
+
 
 export default Home

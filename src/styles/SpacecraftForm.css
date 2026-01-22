@@ -1,69 +1,98 @@
 .form {
   display: flex;
   flex-direction: column;
-  min-width: 50vw;
-  margin-top: 5%;
-  gap: 20px;
-}
-
-.form form {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 20px;
-  border: 3px dotted white;
-}
-
-.form form input,
-textarea {
+  align-items: center;
+  background: radial-gradient(circle at top, #0b1024, #02040f);
+  min-height: 100vh;
+  min-width: 100vh;
+  padding: 2rem;
   color: white;
-  border: 3px solid white;
-  min-height: 40px;
-  background-color: transparent;
+  gap: 2rem;
 }
 
-#craft__capacity::-webkit-outer-spin-button,
-#craft__capacity::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
+/* Back button */
 .craft__back__button {
-  margin-right: auto;
-  margin-top: 20px;
+  align-self: flex-start;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.craft__build__button {
-  margin-left: auto;
-  margin-top: 20px;
+.craft__back__button:hover {
+  background: rgba(34,211,238,0.2);
+  box-shadow: 0 0 15px rgba(34,211,238,0.6);
 }
 
-.craft__required {
-  display: flex;
-  color: red;
-}
-
-.craft__required ul {
+/* Form fields */
+form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+input, textarea {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  resize: none;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;  
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #22d3ee;
+  box-shadow: 0 0 15px rgba(34,211,238,0.5);
 }
 
 textarea {
   resize: none;
-  min-height: 200px;
+  min-height: 100px;
 }
 
-button {
-  color: white;
-  background-color: transparent;
-  border: 2px solid white;
-  padding: 10px;
-  max-height: 50px;
+/* Required / error messages */
+.craft__required ul {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+  color: #f87171; /* red accent */
 }
 
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: green;
+/* Build button */
+.craft__build__button {
+  margin-top: 1rem;
+  padding: 12px 32px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #22d3ee, #6366f1);
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.craft__build__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  form {
+    width: 90%;
+  }
 }

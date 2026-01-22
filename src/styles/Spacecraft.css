@@ -1,45 +1,66 @@
 .spacecraft {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   align-items: center;
-  min-width: 80vw;
-  min-height: 40vh;
-  padding: 50px;
-  gap: 50px;
-  overflow: hidden;
+  gap: 2rem;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b1024, #02040f);
+  padding: 2rem;
+  color: white;
 }
 
+/* Spacecraft Image */
+.spacecraft__img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spacecraft__img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(99,102,241,0.35);
+}
+
+/* Details panel */
 .spacecraft__details {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 20vh;
-  max-height: 20vh;
-  padding: 20px;
-  margin-bottom: 40px;
-}
-
-.spacecraft__specifications,
-.spacecraft__description {
-  display: flex;
   flex-direction: column;
-  min-width: 50%;
-  max-width: 80%;
-  min-height: 20vh;
-  max-height: 20vh;
-  gap: 25px;
-  padding: 15px;
-  overflow-wrap: normal;
+  gap: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-.spacecraft__img {
-  border: 3px dotted white;
-  min-width: 15vw;
-  max-width: 15vw;
-  min-height: 15vh;
-  max-height: 15vh;
-  padding: 10px;
+/* Specifications & Description */
+.spacecraft__specifications p,
+.spacecraft__description p {
+  margin: 0.3rem 0;
+}
+
+.spacecraft__specifications {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.spacecraft__description p:first-child {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .spacecraft {
+    padding: 1rem;
+  }
+
+  .spacecraft__details {
+    padding: 1rem;
+  }
 }

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAllSpacecrafts, getSpacecraftsStatus, getSpacecraftsError, fetchSpacecrafts } from '../features/spacecraft/SpacecraftsSlice'
-import SelectBox from "../components/SelectBox"
 import LoadingScreen from '../components/LoadingScreen'
 import '../styles/Spacecrafts.css'
 import { destroySpacecraft } from '../features/spacecraft/SpacecraftsSlice'
@@ -35,13 +34,31 @@ const Spacecrafts = () => {
     if (spacecraftsStatus === 'loading') return <LoadingScreen />;
 
   return (
-    <div className="spacecrafts">
-        <button className="build" onClick={handleClick}> 📐Build a Spacecraft</button>
-        {spacecrafts?.map(ship => {
-            return <SelectBox key={ship.id} id={ship.id} source={ship.pictureUrl} details={[ship.name, ship.capacity]} action={destroy} actionName='Destroy' isRowLayout={false} onImageClick={handleImageClick}/>
-        })}
-    </div>
-  )
+        <div className="spacecrafts__page">
+            {/* Title */}
+            <section className="spacecrafts__title">
+              <h1>Fleet Command</h1>
+              <p>Build, inspect, and manage spacecrafts ready to explore the cosmos.</p>
+              <button className="btn-primary" onClick={handleClick}>
+                📐 Build a Spacecraft
+              </button>
+            </section>
+
+            {/* Spacecrafts Grid */}
+            <section className="spacecrafts__grid">
+                {spacecrafts?.map(ship => (
+                    <div key={ship.id} className="spacecraft-card">
+                        <img src={ship.pictureUrl} alt={ship.name} onClick={() => handleImageClick(ship.id)} />
+                        <div className="spacecraft-info">
+                            <h3>{ship.name}</h3>
+                            <p>Capacity: {ship.capacity}</p>
+                        </div>
+                        <button className="btn-destroy" onClick={() => destroy(ship.id)}>Destroy</button>
+                    </div>
+                ))}
+            </section>
+        </div>
+    ) 
 }
 
 export default Spacecrafts
