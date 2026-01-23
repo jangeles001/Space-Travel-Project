@@ -1,5 +1,4 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import styles from "./App.module.css";
 
 //layouts
 import RootLayout from './layouts/RootLayout.jsx'
@@ -27,14 +26,16 @@ const router = createBrowserRouter(
       errorElement={<NotFoundError />} />
       <Route path='*' element={<NotFound />} />
     </Route>
-  )
+  ),{
+    basename: "/Space-Travel-Project/"
+  }
 )
 
 function App ()
 {
   return (
     <>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}/>
     </>
   );
 }
