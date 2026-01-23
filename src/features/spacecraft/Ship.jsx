@@ -2,7 +2,7 @@ import '../../styles/ship.css'
 
 export const Ship = ({ id, image, name, capacity, onImageClick, isSelected }) => {
     
-    const imageSource = (image && image.trim()) || '/rocket-b.svg';
+    const imageSource = image || '/rocket-b.svg';
 
   return (
     <div className={`ship ${isSelected ? 'selected' : ''}`}>
